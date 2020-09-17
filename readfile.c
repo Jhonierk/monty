@@ -23,9 +23,12 @@ void readfile(char *file)
 	while (line_length != EOF)
 	{
 		argv = get_string(str);
-		op_fun = get_op(argv[0]);
+		op_fun = get_op(argv);
 		if (op_fun)
+		{
+			v_list = atoi(argv[1]);
 			op_fun(&stack, numberl);
+		}
 		else
 		{
 			fprintf(stderr, "L%u: unknown instruction %s\n", numberl, argv[0]);

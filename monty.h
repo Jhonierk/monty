@@ -6,8 +6,8 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <unistd.h>
 #include <ctype.h>
-#include <stdbool.h>
 #include <string.h>
 
 /**
@@ -44,7 +44,8 @@ int v_list;
 
 void readfile(char *file);
 char **get_string(char *str);
-void (*get_op(char *str))(stack_t **, unsigned int);
+void (*get_op(char **argv))(stack_t **, unsigned int);
 void _push(stack_t **stack, unsigned int line_number);
+void _pall(stack_t **stack, unsigned int line_number);
 
 #endif

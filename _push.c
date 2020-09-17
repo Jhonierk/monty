@@ -6,7 +6,8 @@
  */
 void _push(stack_t **stack, unsigned int line_number)
 {
-    stack_t *newlist, *aux;
+    stack_t *newlist;
+	(void)line_number;
 
     newlist = malloc(sizeof(stack_t));
     if (!newlist)
@@ -15,17 +16,13 @@ void _push(stack_t **stack, unsigned int line_number)
         exit(EXIT_FAILURE);
     }
     newlist->n = v_list;
+    newlist->prev = NULL;
     newlist->next = NULL;
-    if (!*stack)
-    {
-        newlist->prev = NULL;
-        *stack = newlist;
-        //return (newlist);
+    if (*stack)
+    { 
+        newlist->next = *stack;
+	    newlist->prev = NULL;
+		newlist->next->prev = newlist;
     }
-    aux = *stack;
-    while (aux->next)
-        aux = aux->next;
-    newlist->prev = aux;
-    aux->next = newlist;
-    //return (newlist);
+    *stack = newlist;
 }
