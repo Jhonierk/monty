@@ -16,6 +16,6 @@ void _mul(stack_t **stack, unsigned int line_number)
 	}
 
 	temp = (*stack)->n;
-	op_pop(stack, line_number);
+	_pop(stack, line_number);
 	(*stack)->n *= temp;
 }
