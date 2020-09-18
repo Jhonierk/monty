@@ -40,5 +40,6 @@ void readfile(char *file)
 		free(argv);
 	}
 	free(str);
+	freelist(&stack);
 	fclose(fd);
 }

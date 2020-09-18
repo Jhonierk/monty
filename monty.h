@@ -47,7 +47,7 @@ char **get_string(char *str);
 void (*get_op(char **argv))(stack_t **, unsigned int);
 int check_number(char **argv);
 void remove_stack(stack_t **stack);
-
+void freelist(stack_t **head);
 void _push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
 void _pint(stack_t **stack, unsigned int line_number);
