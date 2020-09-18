@@ -12,16 +12,19 @@ void (*get_op(char **argv))(stack_t **, unsigned int)
 		{NULL, NULL}
 	};
 	unsigned int i = 0;
+	int check = 0;
 
 	while (ops[i].opcode)
 	{
 		if (strcmp(argv[0], ops[i].opcode) == 0)
 		{
-			if (strcmp(argv[0], "push") == 0 && atoi(argv[1]) != 0)
-				return (ops[i].f);
-			else if (strcmp(argv[0], "push") == 0 && argv[1][0] == '0')
-				return (ops[i].f);
-			else if (strcmp(argv[0], "push") != 0)
+			if (strcmp(argv[0], "push") == 0)
+			{
+				check = check_number(argv);
+				if (check != -1)
+					return (ops[i].f);
+			}
+			else
 				return (ops[i].f);
 		}
 		i++;

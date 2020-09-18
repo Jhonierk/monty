@@ -11,7 +11,7 @@ void readfile(char *file)
 	ssize_t line_length;
 	stack_t *stack = NULL;
 	unsigned int numberl = 1;
-	void (*op_fun)(stack_t **stack, unsigned int line_number);
+	void (*op_fun)(stack_t **, unsigned int);
 
 	fd = fopen(file, "r");
 	if (fd == NULL)
@@ -26,7 +26,8 @@ void readfile(char *file)
 		op_fun = get_op(argv);
 		if (op_fun)
 		{
-			v_list = atoi(argv[1]);
+			if (argv[1])
+				v_list = atoi(argv[1]);
 			op_fun(&stack, numberl);
 		}
 		else
@@ -36,8 +37,8 @@ void readfile(char *file)
 		}
 		numberl++;
 		line_length = getline(&str, &size, fd);
+		free(argv);
 	}
 	free(str);
-	free(argv);
 	fclose(fd);
 }
