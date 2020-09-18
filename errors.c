@@ -15,6 +15,5 @@ void er(char *str, stack_t *stack, FILE *fd, char **argv, unsigned int numberl)
 	freelist(&stack);
 	fclose(fd);
 	free(argv);
-	errors(str, stack, fd, argv, numberl);
 	exit(EXIT_FAILURE);
 }
