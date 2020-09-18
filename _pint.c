@@ -1,6 +1,10 @@
 #include "monty.h"
-
-void op_pint(stack_t **stack, unsigned int line_number)
+/**
+* pint - prints the value at the top of the stack
+* @stack: is the list to print
+* @line_number: number of the line to be executed.
+*/
+void _pint(stack_t **stack, unsigned int line_number)
 {
     
     if (stack == NULL || *stack == NULL)

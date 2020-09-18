@@ -9,6 +9,7 @@ void (*get_op(char **argv))(stack_t **, unsigned int)
 	instruction_t ops[] = {
 		{"push", _push},
 		{"pall", _pall},
+		{"pint", _pint},
 		{NULL, NULL}
 	};
 	unsigned int i = 0;
