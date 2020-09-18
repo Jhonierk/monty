@@ -14,6 +14,7 @@ void (*get_op(char **argv))(stack_t **, unsigned int)
 		{"swap", _swap},
 		{"add", _add},
 		{"nop", _nop},
+		{"sub", _sub},
 		{NULL, NULL}
 	};
 	unsigned int i = 0;
