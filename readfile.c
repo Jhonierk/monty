@@ -31,13 +31,7 @@ void readfile(char *file)
 			op_fun(&stack, numberl);
 		}
 		else
-		{
-			fprintf(stderr, "L%u: unknown instruction %s\n", numberl, argv[0]);
-			free(str);
-			freelist(&stack);
-			fclose(fd);
-			exit(EXIT_FAILURE);
-		}
+			er(str, stack, fd, argv, numberl);
 		numberl++;
 		line_length = getline(&str, &size, fd);
 		free(argv);

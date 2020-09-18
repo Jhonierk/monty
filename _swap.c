@@ -1,12 +1,12 @@
 #include "monty.h"
 /**
- * _Swap - swaps the top two elements of the stack
+ * _swap - swaps the top two elements of the stack
  * @stack: is the list to print
  * @line_number: number of the line to be executed.
  */
 void _swap(stack_t **stack, unsigned int line_number)
 {
-    stack_t *temp;
+	stack_t *temp;
 
 	if (!(*stack) || !((*stack)->next))
 	{
